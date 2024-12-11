@@ -11,11 +11,18 @@ https://docs.djangoproject.com/en/3.0/ref/settings/
 """
 
 import os
+import django
 
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 TEMPLATE_DIR = os.path.join(BASE_DIR,'templates')
 STATIC_DIR=os.path.join(BASE_DIR,'static')
+
+os.environ.setdefault("DJANGO_SETTINGS_MODULE", "mysite.settings")
+
+django.setup()
+from django.core.management import call_command
+
 
 
 # Quick-start development settings - unsuitable for production
@@ -41,7 +48,6 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'ecom',
     'widget_tweaks',
-
 ]
 
 MIDDLEWARE = [
